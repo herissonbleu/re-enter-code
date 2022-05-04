@@ -13,6 +13,7 @@ df = data[data.duplicated(subset='client_id', keep=False)]
 df = data.sort_values(by='client_id')
 #print(df.head(10))
 
+#Function to calculate re-enters inside the next seven days since the entry
 def re_enter_within_7days(df, adm):
     df_of_adm = df[df['client_id']==adm].sort_values(by = 'entry_time')
     t1 = df_of_adm['entry_time'].reset_index(drop = True)[0]
